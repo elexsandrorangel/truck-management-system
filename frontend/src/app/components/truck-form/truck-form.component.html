@@ -1,0 +1,77 @@
+
+<mat-card>
+  <mat-card-content>
+    <h1 *ngIf="isAddMode">Add Truck</h1>
+    <h1 *ngIf="!isAddMode">Edit Truck</h1>
+    <form [formGroup]="form" (submit)="onSubmit()">
+      <input *ngIf="!isAddMode" type="hidden" id="truckId" formControlName="model"/>
+      <div class="form-group col">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <mat-form-field>
+              <mat-label>Model</mat-label>
+              <mat-select formControlName="model" id="truckModel">
+                <mat-option>None</mat-option>
+                <mat-option value="FH">FH</mat-option>
+                <mat-option value="FM">FM</mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.controls['model'].errors && form.controls['model'].errors['required']">
+                Model is required
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <mat-form-field>
+              <mat-label>Color</mat-label>
+              <input type="text" matInput formControlName="color" placeholder="Color" id="truckColor">
+              <mat-error *ngIf="form.controls['color'].errors && form.controls['color'].errors['required']">
+                Color is required
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <mat-form-field>
+              <mat-label>Manufacture Year</mat-label>
+              <input type="text" matInput formControlName="manufactureYear"
+                     placeholder="Manufacture year" id="manufactureYear">
+              <mat-error
+                  *ngIf="form.controls['manufactureYear'].errors
+                          && form.controls['manufactureYear'].errors['required']">
+                Manufacture year is required
+              </mat-error>
+              <mat-error
+                *ngIf="form.controls['manufactureYear'].errors
+                        && form.controls['manufactureYear'].errors['number']">
+                Manufacture year should be current year
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <mat-form-field>
+              <mat-label>Model Year</mat-label>
+              <input type="number" matInput formControlName="modelYear" placeholder="Model year" id="modelYear">
+              <mat-error
+                *ngIf="form.controls['modelYear'].errors && form.controls['modelYear'].errors['required']">
+                Model year is required
+              </mat-error>
+              <mat-error
+                *ngIf="form.controls['modelYear'].errors && form.controls['modelYear'].errors['number']">
+                Model year should be {{currentYear}} or {{currentYear + 1}}
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group text-center">
+        <button [disabled]="loading" mat-raised-button color="primary" class="m-1" id="btnSave">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+          Save
+        </button>
+        <a routerLink="/trucks" mat-raised-button>Cancel</a>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

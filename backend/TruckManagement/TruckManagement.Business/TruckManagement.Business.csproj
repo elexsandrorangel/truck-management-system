@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TruckManagement.Business.Interfaces\TruckManagement.Business.Interfaces.csproj" />
+    <ProjectReference Include="..\TruckManagement.Infra.Core\TruckManagement.Infra.Core.csproj" />
+    <ProjectReference Include="..\TruckManagement.Models\TruckManagement.Models.csproj" />
+    <ProjectReference Include="..\TruckManagement.Repository.Interfaces\TruckManagement.Repository.Interfaces.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.0" />
+  </ItemGroup>
+
+</Project>

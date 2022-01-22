@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TruckManagement.Models\TruckManagement.Models.csproj" />
+    <ProjectReference Include="..\TruckManagement.ViewModels\TruckManagement.ViewModels.csproj" />
+  </ItemGroup>
+
+</Project>
